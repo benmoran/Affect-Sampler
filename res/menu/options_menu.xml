@@ -1,0 +1,9 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/chart_menu_item" android:title="@string/chart_menu_label"
+		android:icon="@+android:drawable/ic_menu_recent_history" />
+	<item android:id="@+id/settings_menu_item" android:title="@string/settings_menu_label"
+		android:icon="@+android:drawable/ic_menu_preferences" />
+	<item android:id="@+id/quit_menu_item" android:title="@string/quit_menu_label"
+		android:icon="@+android:drawable/ic_menu_close_clear_cancel" />
+</menu>

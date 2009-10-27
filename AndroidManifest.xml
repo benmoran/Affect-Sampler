@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="net.benmoran.affectsampler" android:versionCode="1"
+	android:versionName="1.0">
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.VIBRATE"/>	
+	<uses-sdk android:minSdkVersion="3" />
+
+	<application android:icon="@drawable/nuvoladrama"
+		android:label="@string/app_name">
+		<uses-library android:name="android.test.runner" />
+		<provider android:name="AffectProvider"
+			android:authorities="net.benmoran.provider.AffectSampleStore" />
+        <activity android:name="org.achartengine.GraphicalActivity" />
+		<activity android:name=".AffectSampler" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".AffectPreferences" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+
+		<receiver android:name=".AlarmSetStartupReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".SampleNotificationReceiver">
+			<intent-filter>
+				<action android:name="net.benmoran.affectsampler.SCHEDULED_SAMPLE" />
+			</intent-filter>
+		</receiver>
+	</application>
+
+	<instrumentation android:name="android.test.InstrumentationTestRunner"
+		android:targetPackage="net.benmoran.affectsampler" android:label="Affect Sampler tests">
+	</instrumentation>
+
+</manifest> 

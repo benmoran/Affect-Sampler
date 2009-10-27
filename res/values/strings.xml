@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Affect Sampler</string>
+<string name="emotion">Emotion</string>
+<string name="intensity">Intensity</string>
+<string name="comment">Comment</string>
+<string name="chart_menu_label">Chart</string>
+<string name="settings_menu_label">Settings</string>
+<string name="quit_menu_label">Exit</string>
+<string name="settings_title">Settings</string>
+
+<string name="save">Save</string>
+<string name="cancel">Cancel</string>
+
+<string name="starttime">Start time</string>
+<string name="endtime">End time</string>
+<string name="frequency">Frequency</string>
+
+</resources>

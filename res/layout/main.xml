@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/emotion" />
+
+	<net.benmoran.affectsampler.HorizontalSlider
+		android:id="@+id/slideEmotion" android:layout_width="fill_parent"
+		android:layout_height="50dip" android:max="10000"
+		android:layout_centerHorizontal="true" />
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/intensity" />
+	<net.benmoran.affectsampler.HorizontalSlider
+		android:id="@+id/slideIntensity" android:layout_width="fill_parent"
+
+		android:layout_height="50dip" android:max="10000"
+		android:layout_centerHorizontal="true" />
+	<TextView android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" android:text="@string/comment" />
+	<EditText android:layout_width="fill_parent" android:id="@+id/textComment" 
+		android:layout_height="wrap_content" />
+
+
+<LinearLayout
+ android:id="@+id/LinearLayout01"
+  android:layout_width="fill_parent"
+   android:orientation="horizontal" 
+   android:layout_height="wrap_content">
+<Button android:text="@string/save" android:id="@+id/ButtonSave" android:layout_height="wrap_content" android:clickable="true" android:layout_width="wrap_content" android:layout_weight="1"></Button>
+<Button android:text="@string/cancel" android:id="@+id/ButtonCancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:clickable="true" android:layout_weight="1"></Button>
+</LinearLayout>
+</LinearLayout>

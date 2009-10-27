@@ -1,0 +1,21 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="@string/starttime"
+        android:title="Start time"
+        android:numeric="integer"
+        android:maxLength="4"
+        android:summary="Earliest sample time" />
+     <EditTextPreference
+        android:key="@string/endtime"
+        android:title="End time"
+        android:numeric="integer"
+        android:maxLength="4"
+        android:summary="Latest sample time" />       
+     <EditTextPreference
+        android:key="@string/frequency"
+        android:numeric="integer"
+        android:maxLength="3"
+        android:title="Frequency"
+        android:summary="Number of samples per day" />       
+</PreferenceScreen>
