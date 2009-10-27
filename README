@@ -1,0 +1,35 @@
+AffectSampler --
+
+This is a personal informatics project for Android, intended to 
+help you perform "experience sampling": quickly capture
+time-series data about your mood at configurable random intervals
+through the day.
+
+The idea will be to synchronize this to a server, and perform
+further analysis to try and identify what drives changes in mood:
+ - Weather?
+ - Money?
+ - Exercise?
+ - Location?
+ - Calendar activities?
+ - Other public data streams; news flow, Twitter sentiment?
+ - Personal data streams, logged by service like your.flowingdata.com?
+
+It's being tested only on an HTC Hero at the moment.
+
+TODO:
+ - Synchronization to a web service (YFD or a custom REST store?)
+ - Store location info
+ - Configurable axes for each data point
+ - Something like Chernoff faces/ MPEG4-FAP to parametrically
+   draw a face reflecting the state of the mood sliders?
+ - A web app to do analysis: cross correlation, trends... 
+
+Tue Oct 27 22:26:17 GMT 2009
+- Initial upload, saving fixed 'emotion' 'intensity' points on 
+  a scale of 0-1.0 to a SQLite db on the phone.  Line charts
+  courtesy of http://www.achartengine.org/. You can also add
+  a comment to each data point.
+
+
+(c) Ben Moran 2009
