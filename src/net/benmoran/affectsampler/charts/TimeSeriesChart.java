@@ -18,6 +18,7 @@
 package net.benmoran.affectsampler.charts;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import net.benmoran.provider.AffectSampleStore.AffectSamples;
@@ -65,27 +66,31 @@ public class TimeSeriesChart extends AbstractChart {
 	 */
 	public Intent execute(Context context, Cursor cursor) {
 
-		String[] titles = new String[] { AffectSamples.EMOTION,
-				AffectSamples.INTENSITY };
+		String[] titles = new String[] { AffectSamples.EMOTION, AffectSamples.INTENSITY };
 		long startTime, endTime;
 		int emIndex = cursor.getColumnIndex(AffectSamples.EMOTION);
 		int inIndex = cursor.getColumnIndex(AffectSamples.INTENSITY);
 		int cdIndex = cursor.getColumnIndex(AffectSamples.CREATED_DATE);
 
 		List<double[]> values = new ArrayList<double[]>();
-
-		int length = cursor.getCount();
+		List<Date[]> dates = new ArrayList<Date[]>();
+		
+		int length = cursor.getCount()-1;
 		int MAX_VALUES=100;
 		int startPos = Math.max(length - MAX_VALUES, 0);
 		length = length - startPos;
 		values.add(new double[length]);
 		values.add(new double[length]);
+		dates.add(new Date[length]);
+		dates.add(new Date[length]);
 		cursor.moveToPosition(startPos);
 		endTime = startTime = cursor.getLong(cdIndex);
 		int i = 0;
 		for (cursor.moveToPosition(startPos); !cursor.isLast(); cursor.moveToNext()) {
 			values.get(0)[i] = cursor.getDouble(emIndex);
 			values.get(1)[i] = cursor.getDouble(inIndex);
+			dates.get(0)[i] = new Date(cursor.getLong(cdIndex));
+			dates.get(1)[i] = new Date(cursor.getLong(cdIndex));
 			endTime = cursor.getLong(cdIndex);
 			++i;
 		}
@@ -96,9 +101,9 @@ public class TimeSeriesChart extends AbstractChart {
 		// renderer.setOrientation(Orientation.VERTICAL);
 		//TODO: get better X axis labels - more meaningful in time
 		setChartSettings(renderer, "Emotion over time",
-				"Time", "Emotion/intensity", 0, length, 0.0, 1.0, Color.GRAY,
+				"Time", "Emotion/intensity", startTime, endTime, 0.0, 1.0, Color.GRAY,
 				Color.LTGRAY);
-		renderer.setXLabels(12);
+		renderer.setXLabels(4);
 		renderer.setYLabels(10);
 		renderer.setDisplayChartValues(false);
 		length = renderer.getSeriesRendererCount();
@@ -108,8 +113,8 @@ public class TimeSeriesChart extends AbstractChart {
 //			seriesRenderer.setFillBelowLine(i == length - 1);
 //			seriesRenderer.setFillBelowLineColor(colors[i]);
 		}
-		return ChartFactory.getLineChartIntent(context, buildBarDataset(titles,
-				values), renderer);
-	}
+		return ChartFactory.getTimeChartIntent(context, buildDateDataset(titles, dates,
+				values), renderer, "dd MMM hh:mm");
+		}
 
 }

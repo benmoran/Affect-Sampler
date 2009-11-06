@@ -8,12 +8,13 @@
 	<net.benmoran.affectsampler.HorizontalSlider
 		android:id="@+id/slideEmotion" android:layout_width="fill_parent"
 		android:layout_height="50dip" android:max="10000"
+		android:progress="5000"
 		android:layout_centerHorizontal="true" />
 	<TextView android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:text="@string/intensity" />
 	<net.benmoran.affectsampler.HorizontalSlider
 		android:id="@+id/slideIntensity" android:layout_width="fill_parent"
-
+        android:progress="5000"
 		android:layout_height="50dip" android:max="10000"
 		android:layout_centerHorizontal="true" />
 	<TextView android:layout_width="fill_parent" 
