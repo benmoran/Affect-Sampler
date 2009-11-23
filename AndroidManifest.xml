@@ -3,7 +3,10 @@
 	package="net.benmoran.affectsampler" android:versionCode="1"
 	android:versionName="1.0">
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	<uses-permission android:name="android.permission.VIBRATE"/>	
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission
+		android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.ah" />
 	<uses-sdk android:minSdkVersion="3" />
 
 	<application android:icon="@drawable/nuvoladrama"
@@ -11,7 +14,7 @@
 		<uses-library android:name="android.test.runner" />
 		<provider android:name="AffectProvider"
 			android:authorities="net.benmoran.provider.AffectSampleStore" />
-        <activity android:name="org.achartengine.GraphicalActivity" />
+		<activity android:name="org.achartengine.GraphicalActivity" />
 		<activity android:name=".AffectSampler" android:label="@string/app_name">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -24,7 +27,8 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-
+		<service android:name=".SyncService">
+		</service>
 		<receiver android:name=".AlarmSetStartupReceiver">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED" />

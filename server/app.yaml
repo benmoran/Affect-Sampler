@@ -1,0 +1,13 @@
+application: affectsampler
+version: 1
+runtime: python
+api_version: 1
+
+
+handlers:
+- url: /rest/.*
+  script: intgutil.py
+  secure: always
+- url: .*
+  script: main.py
+  secure: always

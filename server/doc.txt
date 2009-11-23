@@ -1,0 +1,8 @@
+The Python modules named *util.py are reusable; the rest of the files (all yaml
+files, *test.py files, main.py, and models.py) are a toy example GAE
+application that shows you by example how you can use the functionality offered
+by the modules named *util.py.
+
+The toy data model in the toy example app is inspired from:
+http://blog.medryx.org/2008/07/24/jsonreststore-overview/
+

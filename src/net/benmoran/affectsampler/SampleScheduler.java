@@ -1,3 +1,18 @@
+/*
+ * 
+ *  Copyright 2009 (C) Ben Moran
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License"); 
+ *  you may not use this file except in compliance with the License. 
+ *  You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *     
+ *  Unless required by applicable law or agreed to in writing, 
+ *  software distributed under the License is distributed on an 
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ *  either express or implied. See the License for the specific 
+ *  language governing permissions and limitations under the License. 
+ */
 package net.benmoran.affectsampler;
 
 import java.sql.Time;
@@ -17,6 +32,10 @@ import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 public class SampleScheduler {
+
+	private static final String DEFAULT_END_TIME = "2000";
+
+	private static final String DEFAULT_START_TIME = "0800";
 
 	public static final String SCHEDULED_SAMPLE = new String(
 			"net.benmoran.affectsampler.SCHEDULED_SAMPLE");
@@ -56,12 +75,12 @@ public class SampleScheduler {
 		PrefsVO prefs = new PrefsVO();
 		try {
 			prefs.startTime = parseTime(settings
-					.getString("Start time", "0800"));
+					.getString(context.getString(R.string.starttime), DEFAULT_START_TIME));
 		} catch (ParseException e) {
 			prefs.startTime = new Time(8, 0, 0);
 		}
 		try {
-			prefs.endTime = parseTime(settings.getString("End time", "2000"));
+			prefs.endTime = parseTime(settings.getString(context.getString(R.string.endtime), DEFAULT_END_TIME));
 		} catch (ParseException e) {
 			prefs.endTime = new Time(20, 0, 0);
 		}

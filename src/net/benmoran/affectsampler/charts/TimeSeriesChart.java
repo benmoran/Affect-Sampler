@@ -1,19 +1,17 @@
-/**
- * Adapted Ben Moran 2009
+/*
  * 
- * Original Copyright (C) 2009 SC 4ViewSoft SRL
+ *  Copyright 2009 (C) Ben Moran
  *  
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *  
- *      http://www.apache.org/licenses/LICENSE-2.0
- *  
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *  Licensed under the Apache License, Version 2.0 (the "License"); 
+ *  you may not use this file except in compliance with the License. 
+ *  You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *     
+ *  Unless required by applicable law or agreed to in writing, 
+ *  software distributed under the License is distributed on an 
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ *  either express or implied. See the License for the specific 
+ *  language governing permissions and limitations under the License. 
  */
 package net.benmoran.affectsampler.charts;
 
@@ -26,7 +24,6 @@ import net.benmoran.provider.AffectSampleStore.AffectSamples;
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;
 
 import android.content.Context;
 import android.content.Intent;
@@ -94,6 +91,7 @@ public class TimeSeriesChart extends AbstractChart {
 			endTime = cursor.getLong(cdIndex);
 			++i;
 		}
+		cursor.close();
 		int[] colors = new int[] { Color.BLUE, Color.CYAN };
 		PointStyle[] styles = new PointStyle[] { PointStyle.POINT,
 				PointStyle.POINT };
@@ -107,12 +105,12 @@ public class TimeSeriesChart extends AbstractChart {
 		renderer.setYLabels(10);
 		renderer.setDisplayChartValues(false);
 		length = renderer.getSeriesRendererCount();
-		for (i = 0; i < length; i++) {
-			XYSeriesRenderer seriesRenderer = (XYSeriesRenderer) renderer
-					.getSeriesRendererAt(i);
-//			seriesRenderer.setFillBelowLine(i == length - 1);
-//			seriesRenderer.setFillBelowLineColor(colors[i]);
-		}
+//		for (i = 0; i < length; i++) {
+//			XYSeriesRenderer seriesRenderer = (XYSeriesRenderer) renderer
+//					.getSeriesRendererAt(i);
+////			seriesRenderer.setFillBelowLine(i == length - 1);
+////			seriesRenderer.setFillBelowLineColor(colors[i]);
+//		}
 		return ChartFactory.getTimeChartIntent(context, buildDateDataset(titles, dates,
 				values), renderer, "dd MMM hh:mm");
 		}

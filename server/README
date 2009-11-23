@@ -1,0 +1,20 @@
+This is the server side of AffectSampler, written in 
+Python 2.5 to run on Google App Engine.
+
+It's based on http://code.google.com/p/gae-json-rest/ .
+
+The aim is:
+ 
+* Take HTTP POSTs of JSON-serialized sample data from the
+  client
+* Detect if they are duplicates, add them as new entries if not - 
+  idempotency.
+
+* Return the latest stored update so the client knows
+  where to start posting from.
+
+* Return the data for queries
+
+We are using longs (IntegerProperty) to store the date fields
+for simplicity of serialization.
+
