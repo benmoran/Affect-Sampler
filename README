@@ -18,12 +18,19 @@ further analysis to try and identify what drives changes in mood:
 It's being tested only on an HTC Hero at the moment.
 
 TODO:
- - Synchronization to a web service (YFD or a custom REST store?)
- - Store location info
+ - Make the syncing logic use the /latest resource to send
+   only the last posts
  - Configurable axes for each data point
+ - Try changing slider colours to reflect scales
+ - Store location info
  - Something like Chernoff faces/ MPEG4-FAP to parametrically
    draw a face reflecting the state of the mood sliders?
  - A web app to do analysis: cross correlation, trends... 
+
+Mon 23 Nov 2009 20:52:50
+- Added a JSON server on Google App Engine.  Log in with a Google
+  account, and you can sync data from the phone.  You can retrieve
+  it as JSON or as CSV.
 
 Tue Oct 27 22:26:17 GMT 2009
 - Initial upload, saving fixed 'emotion' 'intensity' points on 
